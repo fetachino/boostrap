@@ -14,7 +14,7 @@
     <!-- Inline CSS -->
     <style>
         body {
-            background-color: white; /* Changed from turquoise to white */
+            background-color: white; /* White background for the body */
         }
 
         .button-container .btn {
@@ -53,7 +53,7 @@
         }
 
         header {
-            background-color: #00a8af !important;
+            background-color: #00c8cc !important; /* Teal background for the header */
         }
 
         header h1 {
@@ -101,6 +101,11 @@
             <!-- Column 1 - Side buttons and modal trigger -->
             <div class="col-sm-12 col-md-3 button-container">
                 <h5 class="mb-4">Reflections</h5>
+                
+                <!-- Modal Trigger Button -->
+                <button type="button" class="btn btn-info w-100 mb-4" data-bs-toggle="modal" data-bs-target="#reflectionsModal">
+                    Reflections
+                </button>
                 
                 <h4 class="mb-4">This week's thoughts ....</h4>
                 
@@ -156,9 +161,9 @@
                 </button>
             </div>
             
-            <!-- Rest of the code remains the same as in the original file -->
+            <!-- Rest of the code remains the same -->
             <div class="col-sm-10 col-md-4 carousel-area">
-                <!-- Carousel content from original file -->
+                <!-- Bootstrap Carousel -->
                 <div id="course_carousel" class="carousel carousel-light" data-bs-ride="carousel" data-bs-interval="2000">
                     <!-- Carousel Indicators -->
                     <div class="carousel-indicators">
@@ -235,7 +240,6 @@
             
             <!-- Column 3 - Accordion -->
             <div class="col-sm-12 col-lg-4 accordion-area">
-                <!-- Accordion content from original file -->
                 <div class="accordion" id="accordionRecipes">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -293,22 +297,24 @@
         </div>
     </div>
     
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="reflectionsModal" tabindex="-1" aria-labelledby="reflectionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reflectionsModalLabel">Health & Wellbeing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Think about your nutrition, your sleep and your hydration habits - these impact your health.</p>
+                    <p>Make sure to enter your e-mail for a chance to win a cookbook!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <!-- Inline JavaScript -->
-    <script>
-        // Initialize popovers
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        });
-
-        // Initialize tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        });
-    </script>
-</body>
-</html>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js
