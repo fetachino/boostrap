@@ -3,89 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Controls Lab</title>
+    <title>Course - Food & Health</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Inline CSS -->
     <style>
+        body {
+            background-color: #00c8cc; /* Light turquoise background */
+        }
+
         .button-container .btn {
             width: 150px;
+        }
+
+        .carousel-item img {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .accordion-area, .carousel-area, .button-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .tooltip-area img {
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .tooltip-area img:hover {
+            transform: scale(1.05);
+        }
+
+        header {
+            background-color: #00a8af !important;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .form-label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 200px;
+            }
+            
+            .button-container .btn {
+                width: 100%;
+                margin: 10px 0 !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-caption h2 {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <header class="bg-primary text-white py-4 mb-4">
+        <div class="container">
+            <h1>Bootstrap</h1>
+            <p class="lead">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+        </div>
+    </header>
+
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-3 button-container bg-light p-3">
-                <!-- Reflections Modal Button -->
-                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#reflectionsModal">
+            <!-- Column 1 - Side buttons and modal trigger -->
+            <div class="col-sm-12 col-md-3 button-container">
+                <h5 class="mb-4">Reflections</h5>
+                
+                <!-- Modal Trigger Button -->
+                <button type="button" class="btn btn-info w-100 mb-4" data-bs-toggle="modal" data-bs-target="#reflectionsModal">
                     Reflections
                 </button>
-
-                <!-- Buttons -->
-                <h4>This week's thoughts ...</h4>
-                <button class="btn btn-md btn-primary d-block m-2" 
-                    data-bs-container="body"
-                    data-bs-toggle="popover"
-                    data-bs-placement="right"
-                    title="Drink Fluids"
-                    data-bs-content="Drinking clear fluids helps your kidneys, liver and heart.">
+                
+                <!-- Bootstrap Buttons with Icons and Popovers -->
+                <button class="btn btn-md btn-primary d-block m-4" 
+                        data-bs-container="body" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="right" 
+                        title="Drink Fluids" 
+                        data-bs-content="Drinking clear fluids helps your kidneys, liver and heart.">
                     <span><i class="bi bi-cup-straw"></i></span>
                     <span style="margin-left: 10px">Hydration</span>
                 </button>
-
-                <button class="btn btn-md btn-primary d-block m-2" 
-                    data-bs-container="body"
-                    data-bs-toggle="popover"
-                    data-bs-placement="right"
-                    title="Careful"
-                    data-bs-content="Caffeine raises your heart rate and causes headaches and dehydration.">
+                
+                <button class="btn btn-md btn-primary d-block m-4"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-placement="right"
+                        title="Careful"
+                        data-bs-content="Caffeine raises your heart rate and causes headaches and dehydration">
                     <span><i class="bi bi-cup-hot-fill"></i></span>
                     <span style="margin-left: 10px">Caffeine</span>
                 </button>
-
-                <button class="btn btn-md btn-primary d-block m-2" 
-                    data-bs-container="body"
-                    data-bs-toggle="popover"
-                    data-bs-placement="right"
-                    title="Wellness"
-                    data-bs-content="Feeling good is all about how you treat your body.">
+                
+                <button class="btn btn-md btn-primary d-block m-4"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-placement="right"
+                        title="Wellness"
+                        data-bs-content="Feeling good is all about how you treat your body">
                     <span><i class="bi bi-lungs-fill"></i></span>
                     <span style="margin-left: 10px">Health</span>
                 </button>
-
-                <button class="btn btn-md btn-primary d-block m-2" 
-                    data-bs-container="body"
-                    data-bs-toggle="popover"
-                    data-bs-placement="right"
-                    title="Rest"
-                    data-bs-content="A good night's sleep is essential for good health.">
+                
+                <button class="btn btn-md btn-primary d-block m-4"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-placement="right"
+                        title="Rest"
+                        data-bs-content="A good night's sleep is essential for good health">
                     <span><i class="bi bi-moon-stars-fill"></i></span>
                     <span style="margin-left: 10px">Sleep</span>
                 </button>
-
-                <button class="btn btn-md btn-primary d-block m-2" 
-                    data-bs-container="body"
-                    data-bs-toggle="popover"
-                    data-bs-placement="right"
-                    title="Exercise"
-                    data-bs-content="Burn calories and add muscle mass with activity.">
+                
+                <button class="btn btn-md btn-primary d-block m-4"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-placement="right"
+                        title="Exercise"
+                        data-bs-content="Burn calories and add muscle mass with activity">
                     <span><i class="bi bi-activity"></i></span>
                     <span style="margin-left: 10px">Activity</span>
                 </button>
             </div>
-
-            <div class="col col-sm-10 col-md-4 carousel-area bg-body bg-gradient p-3">
-                <!-- Carousel -->
-                <div id="course_carousel" class="carousel carousel-light slide" data-bs-ride="carousel" data-bs-interval="2000">
+            
+            <!-- Column 2 - Carousel and Tooltip -->
+            <div class="col-sm-10 col-md-4 carousel-area">
+                <!-- Bootstrap Carousel -->
+                <div id="course_carousel" class="carousel carousel-light" data-bs-ride="carousel" data-bs-interval="2000">
+                    <!-- Carousel Indicators -->
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#course_carousel" data-bs-slide-to="0" class="active"></button>
                         <button type="button" data-bs-target="#course_carousel" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#course_carousel" data-bs-slide-to="2"></button>
                         <button type="button" data-bs-target="#course_carousel" data-bs-slide-to="3"></button>
                     </div>
-
+                    
+                    <!-- Carousel Inner -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="./assets/marsala.jpeg" alt="Chicken Marsala">
@@ -95,28 +181,28 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/piccata.jpg" alt="Chicken Piccata">
+                            <img class="d-block w-100" src="./assets/pasta.jpeg" alt="Bolognese Italia">
+                            <div class="carousel-caption">
+                                <h2>Bolognese Italia</h2>
+                                <p>Tomato and Beef Traditional Dish</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./assets/piccata.jpeg" alt="Chicken Piccata">
                             <div class="carousel-caption">
                                 <h2>Chicken Piccata</h2>
                                 <p>Low calorie flavourful Italian dinner</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/bolognese.jpg" alt="Bolognese Pasta">
-                            <div class="carousel-caption">
-                                <h2>Bolognese Italia</h2>
-                                <p>Hearty Italian comfort food</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/shrimp-scampi.jpg" alt="Shrimp Scampi">
+                            <img class="d-block w-100" src="./assets/scampi.jpeg" alt="Shrimp Scampi">
                             <div class="carousel-caption">
                                 <h2>Shrimp Scampi</h2>
                                 <p>Universal healthy seafood dish</p>
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Carousel Controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#course_carousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -127,135 +213,123 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
-                <!-- Tooltip Image -->
-                <div class="tooltip-area mt-3">
+                
+                <!-- Tooltip Area -->
+                <div class="tooltip-area mt-4">
                     <div>
                         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Cook book">
-                            <img src="./assets/cookbook.jpg" style="width: 100px;height: 100px"/>
+                            <img src="./assets/cookbook.jpg" style="width: 100px;height: 100px" alt="Cookbook"/>
                         </span>
                     </div>
+                    
+                    <!-- Form with tooltip for email explanation -->
+                    <form class="mt-3">
+                        <p>Enter your e-mail to win the book!</p>
+                        <div class="mb-4 input-group">
+                            <input type="email" class="form-control" id="email" placeholder="anniestudent@iu.edu"/>
+                            <span class="input-group-text text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="enter your e-mail">
+                                <i class="bi bi-question-circle"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
                 </div>
-
-                <!-- Tooltip Form -->
-                <form class="mt-3">
-                    <label for="e-mail" class="form-label">E-Mail Address</label>
-                    <div class="mb-4 input-group">
-                        <span class="input-group-text">
-                            <i class="bi bi-envelope-fill"></i>
-                        </span>
-                        <input type="email" class="form-control" id="email" placeholder="anniestudent@iu.edu"/>
-                        <span class="input-group-text text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="enter your e-mail">
-                            <i class="bi bi-question-circle"></i>
-                        </span>
-                    </div>
-                </form>
             </div>
-
-            <div class="col col-sm-12 col-lg-4 accordion-area p-3">
+            
+            <!-- Column 3 - Accordion -->
+            <div class="col-sm-12 col-lg-4 accordion-area">
                 <div class="accordion" id="accordionRecipes">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Chicken Marsala
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" 
-                             aria-labelledby="Chicken Marsala" data-bs-parent="#accordionRecipes">
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="Chicken Marsala" data-bs-parent="#accordionRecipes">
                             <div class="accordion-body">
-                                Marinade chicken in sweet white wine.
-                                Butterfly chicken in olive oil, saute until golden brown.
-                                Add sliced mushrooms and drizzle white wine on top.
+                                Marinade chicken in sweet white wine. Butterfly chicken in olive oil, saute until golden brown. Add sliced mushrooms and drizzle white wine on top.
                             </div>
                         </div>
                     </div>
+                    
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Chicken Piccata
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" 
-                             aria-labelledby="Chicken Piccata" data-bs-parent="#accordionRecipes">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="Chicken Piccata" data-bs-parent="#accordionRecipes">
                             <div class="accordion-body">
-                                Saute the chicken in olive oil, add capers and sprinkle on paprika.
+                                Saute the chicken in olive oil, add capers and sprinkle on paprika
                             </div>
                         </div>
                     </div>
+                    
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 Bolognese Italia
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" 
-                             aria-labelledby="Bolognese Italia" data-bs-parent="#accordionRecipes">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="Bolognese Italia" data-bs-parent="#accordionRecipes">
                             <div class="accordion-body">
-                                Saute minced beef until browned, add sliced onions, tomato paste, garlic. 
-                                Season to taste with salt and pepper.
+                                Saute minced beef until browned, add sliced onions, tomato paste, garlic. Season to taste with salt and pepper.
                             </div>
                         </div>
                     </div>
+                    
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 Shrimp Scampi
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" 
-                             aria-labelledby="Shrimp Scampi" data-bs-parent="#accordionRecipes">
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="Shrimp Scampi" data-bs-parent="#accordionRecipes">
                             <div class="accordion-body">
-                                Saute shrimp (tail off) in oil with lemon seasoning. 
-                                Add garlic powder. Boil linguini or spaghetti. 
-                                Fold shrimp and sauces into pasta.
+                                Saute shrimp (tail off) in oil with lemon seasoning. Add garlic power. Boil linguini or spaghetti. Fold shrimp ad sauces into pasta.
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reflections Modal -->
-        <div class="modal fade" id="reflectionsModal" tabindex="-1" 
-             aria-labelledby="reflectionsModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="reflectionsModalLabel">Health & Wellbeing</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Think about your nutrition, your sleep and your hydration habits - these impact your health.</p>
-                        <p>Make sure to enter your e-mail for a chance to win a cookbook!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     
+    <!-- Modal -->
+    <div class="modal fade" id="reflectionsModal" tabindex="-1" aria-labelledby="reflectionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reflectionsModalLabel">Health & Wellbeing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Think about your nutrition, your sleep and your hydration habits - these impact your health.</p>
+                    <p>Make sure to enter your e-mail for a chance to win a cookbook!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Inline JavaScript -->
     <script>
-        // Enable Tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-
-        // Enable Popovers
+        // Initialize popovers
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             return new bootstrap.Popover(popoverTriggerEl)
-        })
+        });
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
     </script>
 </body>
 </html>
